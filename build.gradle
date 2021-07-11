@@ -1,0 +1,73 @@
+plugins {
+    id 'org.springframework.boot' version '2.3.2.RELEASE'
+    id 'io.spring.dependency-management' version '1.0.8.RELEASE'
+    id 'java'
+    id 'application'
+}
+
+group 'works.red_eye'
+version '0.0.1'
+
+configurations {
+    developmentOnly
+    runtimeClasspath {
+        extendsFrom developmentOnly
+    }
+}
+
+repositories {
+    mavenLocal()
+    mavenCentral()
+}
+
+ext {
+    javaMainClass = "works.red_eye.guest_book.Application"
+}
+
+application {
+    mainClassName = javaMainClass
+}
+
+dependencies {
+    // Spring Security
+    implementation 'org.springframework.boot:spring-boot-starter-security'
+
+    // Spring Web
+    implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+
+    // Spring WebSocket
+    implementation 'org.springframework.boot:spring-boot-starter-websocket'
+    implementation 'org.webjars:webjars-locator-core'
+    implementation 'org.webjars:sockjs-client:1.0.2'
+    implementation 'org.webjars:stomp-websocket:2.3.3'
+    implementation 'org.webjars:bootstrap:3.3.7'
+    implementation 'org.webjars:jquery:3.1.1-1'
+    implementation 'org.testng:testng:7.1.0'
+
+    // JPA
+    compile 'org.postgresql:postgresql:42.2.10'
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+
+    // Utils
+    implementation group: 'com.google.code.gson', name: 'gson', version: '2.7'
+    compile group: 'com.google.guava', name: 'guava', version: '11.0.2'
+
+    //Logger
+//    compile group: 'log4j', name: 'log4j', version: '1.2.17'
+//    compile group: 'org.slf4j', name: 'slf4j-api', version: '1.7.30'
+
+    //Lombok
+    annotationProcessor 'org.projectlombok:lombok'
+    compileOnly 'org.projectlombok:lombok'
+    testAnnotationProcessor 'org.projectlombok:lombok'
+    testCompileOnly 'org.projectlombok:lombok'
+
+//    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+//    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.0'
+//    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.7.0'
+}
+
+test {
+    useJUnitPlatform()
+}

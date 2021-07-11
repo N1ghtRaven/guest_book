@@ -1,0 +1,21 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Get Email from memory pool</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    </head>
+    <body>
+        <h1>Get User Info</h1>
+        <form action="#" th:action="@{/user/view}" method="get">
+            <p>
+                User:
+                <select name="id">
+                    <option value="NONE">...Choose...</option>
+                    <option th:each="user : ${users}" th:value="${user.id}" th:text="${user.value}"></option>
+                </select>
+            </p>
+
+            <p><input type="submit" value="Submit"/></p>
+        </form>
+    </body>
+</html>

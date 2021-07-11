@@ -1,0 +1,24 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Create Message Form</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<h1>Create Message Form</h1>
+<form action="#" th:action="@{/admin/add}" method="post">
+    <p>Username: <input name="username" type="text" required/></p>
+    <p>Message: <input name="message" type="text" required/></p>
+
+    <p>
+        Color:
+        <select name="color">
+            <option th:each="color : ${T(works.red_eye.guest_book.entity.message.Color).values()}"
+                    th:value="${color}" th:text="${color.displayValue}"></option>
+        </select>
+    </p>
+
+    <p><input type="submit" value="Submit"/></p>
+</form>
+</body>
+</html>

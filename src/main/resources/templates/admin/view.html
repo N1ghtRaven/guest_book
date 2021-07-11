@@ -1,0 +1,19 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Message Info</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    </head>
+    <body>
+        <h1>Message View</h1>
+        <div th:object="${message}">
+            <p th:text="'ID: ' + *{id}" />
+            <p th:text="'Username: ' + *{username}" />
+            <p th:text="'Message: ' + *{message}" />
+            <p th:text="'Status: ' + *{status}" />
+            <p th:text="'Color: ' + *{color}" />
+            <p th:text="'Creation Date: ' + *{#dates.format(creationTime, 'dd/MM/yyyy HH:mm:ss')}" />
+            <p th:text="'Last Update Date: ' + *{#dates.format(updateTime, 'dd/MM/yyyy HH:mm:ss')}" />
+        </div>
+    </body>
+</html>

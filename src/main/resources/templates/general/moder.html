@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+      <meta charset="UTF-8">
+      <link rel="stylesheet" href="/css/bootstrap.min.css"/>
+      <link rel="stylesheet" href="/css/fontawesome.min.css"/>
+      <link rel="stylesheet" href="/css/message.css"/>
+      <title>Проверка сообщений</title>
+  </head>
+  <body onload="ws_moderate_connect()">
+    <main class="container">
+      <div class="my-3 p-3 bg-white rounded shadow-sm">
+        <h6 class="border-bottom pb-2 mb-0">Комментарии на проверке</h6>
+        <div id="message-container"></div>
+        <small class="d-block text-right mt-3">
+          <a onclick="moderate_more()" href="#">Загрузить ещё</a>
+        </small>
+      </div>
+    </main>
+  </body>
+  <footer>
+    <script src="/js/jquery-3.6.0.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/fontawesome.min.js"></script>
+    <script src="/js/sockjs.min.js"></script>
+    <script src="/js/stomp.js"></script>
+    <script src="/js/message.js"></script>
+    <script src="/js/moderator.js"></script>
+  </footer>
+</html>

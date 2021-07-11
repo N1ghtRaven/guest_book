@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+  <head>
+      <meta charset="UTF-8">
+      <link rel="stylesheet" href="/css/bootstrap.min.css"/>
+      <link rel="stylesheet" href="/css/fontawesome.min.css"/>
+    <title>Оставить комментарий</title>
+  </head>
+  <body>
+    <main class="container">
+      <div class="my-3 p-3 bg-white rounded shadow-sm">
+        <form class="row g-3" th:action="@{/comment/send}" method="post">
+          <div class="col-md-7">
+            <input type="text" class="form-control" name="username" placeholder="Как вас зовут?" required>
+          </div>
+          <div class="col-md-5">
+            <select name="color" class="form-select" required>
+              <option selected disabled>Выберите ваш колледж</option>
+                <option th:each="color : ${T(works.red_eye.guest_book.entity.message.Color).values()}"
+                        th:value="${color}" th:text="${color.displayValue}"></option>
+            </select>
+          </div>
+          <div class="input-group">
+            <textarea maxlength="64" name="message" rows="2" placeholder="Ваш комментарий" class="option-block form-control" required></textarea>
+            <button type="submit" class="input-right btn btn-outline-primary">
+              <i class="fab fa-telegram-plane"></i>
+            </button>
+          </div>
+        </form>
+      </div>
+    </main>
+  </body>
+  <footer>
+    <script src="/js/jquery-3.6.0.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/fontawesome.min.js"></script>
+  </footer>
+</html>

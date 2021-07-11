@@ -1,0 +1,21 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Remove User from memory pool</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    </head>
+    <body>
+        <h1>Remove User Form</h1>
+        <form action="#" th:action="@{/user/remove}" method="post">
+            <p>
+                User:
+                <select name="id">
+                    <option value="NONE">...Choose...</option>
+                    <option th:each="user : ${users}" th:value="${user.id}" th:text="${user.value}"></option>
+                </select>
+            </p>
+
+            <p><input type="submit" value="Submit"/></p>
+        </form>
+    </body>
+</html>

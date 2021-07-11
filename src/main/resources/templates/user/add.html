@@ -1,0 +1,23 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Getting Started: Handing Form Submission</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<h1>Create Account Form</h1>
+<form action="#" th:action="@{/user/add}" method="post">
+    <p>Username: <input name="username" type="text" required/></p>
+    <p>Password: <input name="password" type="text" required/></p>
+    <p>
+        Role:
+        <select name="role">
+            <option th:each="role : ${T(works.red_eye.guest_book.entity.user.Role).values()}"
+                    th:value="${role}" th:text="${role.displayValue}"></option>
+        </select>
+    </p>
+
+    <p><input type="submit" value="Submit"/></p>
+</form>
+</body>
+</html>
